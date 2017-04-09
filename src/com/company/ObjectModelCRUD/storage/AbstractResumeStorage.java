@@ -15,9 +15,7 @@ public abstract class AbstractResumeStorage implements Storage{
         return size;
     }
 
-    @Override
-    public void delete(String uuid) {
-    }
+
 
     @Override
     public Resume get(String uuid) {

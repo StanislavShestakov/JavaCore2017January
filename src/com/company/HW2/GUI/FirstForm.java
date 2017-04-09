@@ -1,6 +1,7 @@
 package com.company.HW2.GUI;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,9 +20,13 @@ public class FirstForm {
                 number.setText(String.valueOf(100 * Math.random()));
             }
         });
+
+
     }
 
     public JPanel getRootPanel() {
         return rootPanel;
     }
+
+  
 }

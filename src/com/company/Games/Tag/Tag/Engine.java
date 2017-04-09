@@ -1,4 +1,4 @@
-package com.company.Games.Tag;
+package com.company.Games.Tag.Tag;
 
 /**
  * Created by Stas on 13.02.2017.

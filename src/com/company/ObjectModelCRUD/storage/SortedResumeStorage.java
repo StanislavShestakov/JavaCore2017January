@@ -32,6 +32,17 @@ public class SortedResumeStorage extends AbstractResumeStorage {
 
     }
 
+    @Override
+    public void delete(String uuid) {
+        int index = getIndex(uuid);
+        int numMoved = size - index - 1;
+        if (numMoved > 0) {
+            System.arraycopy(storage, index + 1, storage, index, numMoved);
+        }
+        storage[size - 1] = null;
+        size--;
+    }
+
 
 
 

@@ -1,4 +1,4 @@
-package com.company.Games.Tag;
+package com.company.Games.Tag.Tag;
 
 import javax.swing.*;
 import java.awt.*;

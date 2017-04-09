@@ -29,6 +29,10 @@ public class ResumeStorage extends AbstractResumeStorage {
         return index;
     }
 
+    @Override
+    public void delete(String uuid) {
+    }
+
 //    @Override
 //    public int getIndex(String uuid) {
 //        Resume searchKey = new Resume(uuid);

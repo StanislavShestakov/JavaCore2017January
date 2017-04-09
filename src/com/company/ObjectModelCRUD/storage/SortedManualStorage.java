@@ -11,23 +11,34 @@ public class SortedManualStorage extends AbstractResumeStorage {
     public int getIndex(String uuid) {
         int insertKey = Integer.parseInt(uuid);
         if (size == 0)
-            return 0;
+            return -1;
         int lowerBound = 0;
         int upperBound = size - 1;
         int curIn;
         while (true) {
             curIn = (upperBound + lowerBound) / 2;
-            if(Integer.parseInt(storage[curIn].getUuid()) == insertKey)
-                return -curIn;
+            if (Integer.parseInt(storage[curIn].getUuid()) == insertKey)
+                return curIn;
             if (Integer.parseInt(storage[curIn].getUuid()) < insertKey) {
                 lowerBound = curIn + 1; // its in the upper
                 if (lowerBound > upperBound) {
-                    return curIn + 1;
-                }
-            } else {
-                upperBound = curIn - 1; // its in the lower
-                if (lowerBound > upperBound) {
-                    return curIn;
+                    if (!(lowerBound > size - 1)) {
+                        if (Integer.parseInt(storage[lowerBound].getUuid()) == insertKey) {
+                            return curIn + 1;
+                        }
+                    }
+                    return -(curIn + 1);
+
+                } else {
+                    upperBound = curIn - 1; // its in the lower
+
+                    if (lowerBound > upperBound) {
+                        if (!(upperBound < 0)) {
+                            if (Integer.parseInt(storage[upperBound].getUuid()) == insertKey)
+                                return curIn;
+                        }
+                        return -curIn;
+                    }
                 }
             }
         }
@@ -41,11 +52,35 @@ public class SortedManualStorage extends AbstractResumeStorage {
         } else if (isOverflow()) {
             System.out.println("Sorry, i can't save new resume. storage is full!");
         } else {
-            System.out.println(index);
-            System.arraycopy(storage, index, storage, index + 1, size - index);
-            storage[index] = r;
+            int insertIdx = index;
+            //int insertIdx = -index - 1;
+            if (size == 0) {
+                storage[size] = r;
+            } else {
+                for (int i = 0; i < size - insertIdx; i++) {
+                    storage[size - i] = storage[size - 1 - i];
+                }
+                storage[insertIdx] = r;
+            }
             size++;
         }
+
+    }
+
+    @Override
+    public void delete(String uuid) {
+        int index = getIndex(uuid);
+        if (index >= 0) {
+            for (int i = index; i < size; i++) {
+                storage[i] = storage[i + 1];
+            }
+            storage[size - 1] = null;
+            size--;
+        } else {
+            System.out.println("резюме с " + uuid + "не существует!");
+        }
+
+
     }
 
 //проверка на integer
