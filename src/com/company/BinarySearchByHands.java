@@ -12,7 +12,7 @@ public class BinarySearchByHands {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int min = 0;
-        int max = 42000000;
+        int max = 42000000; //n n/2 log(n)
         System.out.println("Я попытаюсь угадать какое число от 0 до " + max + " Вы загадали!");
 
         int countAttempt = 0;

@@ -3,38 +3,28 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
-
-        for (int i = 0; i <1000 ; i++) {
-            if (i%2 > 0){
-                System.out.println(i);
+        int[][] a = new int[10][];
+        for (int i = 0; i < 10; i++) {
+            Random r = new Random();
+            int num = r.nextInt(10);
+            //int num1 = (int)(Math.random()*10);
+            int [] array = new int[num];
+            a[i] = array;
+            for (int j = 0; j < num; j++) {
+               a[i][j] = r.nextInt(1000);
             }
         }
-
-        int maxBoxesInContainer = 5;
-        int maxContainers = 5;
-        int maxBoxesInShip = maxBoxesInContainer*maxContainers;
-        int containerNumber = 1;
-        int shipNumber = 1;
-        int boxesToDelivery = 100;
-        System.out.println("Корабль №" + shipNumber);
-        System.out.println("--Контейнер №" + containerNumber);
-        for (int i = 1; i <= boxesToDelivery ; i++) {
-            System.out.println("----Ящик №"+i);
-            if ((i%maxBoxesInShip==0) && (i!=boxesToDelivery)){
-                shipNumber++;
-                containerNumber++;
-                System.out.println("Корабль №" + shipNumber);
-                System.out.println("--Контейнер №"+containerNumber);
-            } else if ((i%maxBoxesInContainer==0) && (i!=boxesToDelivery)){
-                containerNumber++;
-                System.out.println("--Контейнер №"+containerNumber);
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                System.out.print(a[i][j] + " ");
             }
-
+            System.out.println();
         }
 
 

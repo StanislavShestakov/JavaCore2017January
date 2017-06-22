@@ -1,17 +1,28 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 /**
  * Created by Stas on 23.01.2017.
  */
 public class MainTest {
     public static void main(String[] args) {
-        String[] letter = {"A", "B", "C", "D", "E", "F", "G", "H"};
-        for (int i = letter.length - 1; i >= 0; i--) {
-            for (int j = 0; j < letter.length; j++) {
-                System.out.print(letter[j] + (i + 1) + " ");
+        //fifo
+        List<String> people = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        while(true){
+            String command = scanner.nextLine();
+            if(command.equals("list")){
+                //распечать список людей
             }
-            System.out.println();
+            if(command.equals("exit")){
+                break;
+            }
         }
+        //lifo
+        //list exitall exitlast exit
 
     }
 }

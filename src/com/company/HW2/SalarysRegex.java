@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  */
 public class SalarysRegex {
     public static void main(String[] args) {
-        String text = "Ваcилиса Егоровна заранботала 508800 рублей, Петя - 7563 рубля, а Cтас Пьеха - 3008800 рублей !!";
+        String text = "Ваcилис Егоровна заранботала 508800 рублей, Петя - 7563 рубля, а Cтас Пьеха - 3008800 рублей !!";
         Pattern p = Pattern.compile("\\d+");
         Matcher m = p.matcher(text);
         int summ = 0;

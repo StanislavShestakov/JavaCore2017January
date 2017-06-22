@@ -79,8 +79,9 @@ public class Cat
 
     public void meow()
     {
-            changeWeight(-1.0);
+
         if(isAwake()) {
+            changeWeight(-1.0);
             System.out.println("Meow");
         }
 
