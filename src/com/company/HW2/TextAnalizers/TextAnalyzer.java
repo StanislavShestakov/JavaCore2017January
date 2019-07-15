@@ -56,6 +56,7 @@ public class TextAnalyzer {
 
     public void showStatistic() {
         countWords();
+        System.out.println("word dictionary(different words): " + wordCounts.size());
         wordCounts.entrySet().stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .limit(wordCounts.size())
@@ -63,12 +64,12 @@ public class TextAnalyzer {
 
 
 
-        List<Map.Entry<String, Integer>> entries = new ArrayList<>(wordCounts.entrySet());
-        Collections.sort(entries, (o1, o2) -> o1.getValue().compareTo(o2.getValue()));
-        //entries.forEach(System.out::println);
-        for (Map.Entry<String, Integer> entry: entries) {
-            System.out.println( entry.getKey() + " " + entry.getValue());
-        }
+//        List<Map.Entry<String, Integer>> entries = new ArrayList<>(wordCounts.entrySet());
+//        Collections.sort(entries, (o1, o2) -> o1.getValue().compareTo(o2.getValue()));
+//        //entries.forEach(System.out::println);
+//        for (Map.Entry<String, Integer> entry: entries) {
+//            System.out.println( entry.getKey() + " " + entry.getValue());
+//        }
     }
 
 

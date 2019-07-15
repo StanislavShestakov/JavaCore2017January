@@ -26,10 +26,13 @@ public class Loader {
                 "That's what I like shopping? for! I, can buy things that I like and it raises my mood. 12 is a number email@mail.ru drag-and-drop";
 
         //Reading file to the String
-        String text1 = new String(Files.readAllBytes(Paths.get("res/text_01.txt")));
+       // String text1 = new String(Files.readAllBytes(Paths.get("res/text_01.txt")));
+        String text1 = new String(Files.readAllBytes(Paths.get("res/the hound of Baskervilles.txt")));
+
 
         TextAnalyzer analyzer = new TextAnalyzer(text1);
-        System.out.println("Most frequent word: " + analyzer.getMostFrequentWord());
+        System.out.println("Most frequent word: " + analyzer.getMostFrequentWord()
+                + "\n words: " + analyzer.getWords().size());
 
         analyzer.showStatistic();
 

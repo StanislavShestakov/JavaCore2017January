@@ -9,6 +9,7 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+        System.out.println(111|13);
         int[][] a = new int[10][];
         for (int i = 0; i < 10; i++) {
             Random r = new Random();
